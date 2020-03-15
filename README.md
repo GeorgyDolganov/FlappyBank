@@ -1,0 +1,2 @@
+# FlappyBank
+Игра на PixiJs
