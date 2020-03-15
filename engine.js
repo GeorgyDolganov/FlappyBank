@@ -305,7 +305,7 @@ function setup() {
 
     gameScene = new Container();
     app.stage.addChild(gameScene);
-    gameScene.filters = [new PIXI.filters.PixelateFilter(3), new PIXI.filters.RGBSplitFilter([-2,0],[0,2],[0,0]),];
+    gameScene.filters = [new PIXI.filters.PixelateFilter(1), new PIXI.filters.RGBSplitFilter([-2,0],[0,2],[0,0]),];
     gameOverScene = new Container();
     app.stage.addChild(gameOverScene);
     gameOverScene.visible = false;
@@ -393,7 +393,7 @@ function setup() {
     };
 
     keyUp.press = () => {
-        player.vy = -1;
+        player.vy = -3;
         player.vx = 0;
     };
 
