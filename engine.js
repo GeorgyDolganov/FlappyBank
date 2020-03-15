@@ -60,7 +60,7 @@ const keyboard = (value) => {
 let screenWidth = 1280,
     screenHeight = 800,
     tileScale = 0.05,
-    playerScale = 0.07,
+    playerScale = 0.007,
     enemyScale = 0.015,
     enemySpacing = 50,
     enemyOffsetX = 75,
@@ -76,6 +76,7 @@ let screenWidth = 1280,
     keyRight = keyboard("ArrowRight"),
     keyDown = keyboard("ArrowDown");
     keyR = keyboard("r");
+    keyRrus = keyboard("к");
 
 //Функция контейнера
 function contain(sprite, container) {
@@ -305,7 +306,7 @@ function setup() {
 
     gameScene = new Container();
     app.stage.addChild(gameScene);
-    gameScene.filters = [new PIXI.filters.PixelateFilter(2), new PIXI.filters.RGBSplitFilter([-2,0],[0,2],[0,0]),];
+    gameScene.filters = [new PIXI.filters.AdvancedBloomFilter(0.95), new PIXI.filters.GodrayFilter, new PIXI.filters.PixelateFilter(1.8), new PIXI.filters.RGBSplitFilter([-2,0],[0,2],[-1,0]),];
     gameOverScene = new Container();
     app.stage.addChild(gameOverScene);
     gameOverScene.visible = false;
@@ -359,6 +360,7 @@ function setup() {
 
 
     player = new Sprite(res["assets/sheets/player/body.png"].texture);
+    player.anchor.x = 0.5;
     player.scale.x = playerScale;
     player.scale.y = playerScale;
     player.y = 1;
@@ -383,7 +385,7 @@ function setup() {
 
     keyLeft.press = () => {
         player.vx = -2;
-        player.vy = 0;
+        player.scale.x = -playerScale;
     };
 
     keyLeft.release = () => {
@@ -393,8 +395,7 @@ function setup() {
     };
 
     keyUp.press = () => {
-        player.vy = -2;
-        player.vx = 0;
+        player.vy = -3  ;
     };
 
     keyUp.release = () => {
@@ -405,7 +406,7 @@ function setup() {
     
     keyRight.press = () => {
         player.vx = 2;
-        player.vy = 0;
+        player.scale.x = playerScale;
     };
 
     keyRight.release = () => {
@@ -416,7 +417,6 @@ function setup() {
 
     keyDown.press = () => {
         player.vy = 1;
-        player.vx = 0;
     };
 
     keyDown.release = () => {
@@ -426,6 +426,12 @@ function setup() {
     };
 
     keyR.press = () => {
+        player.x = 15;
+        player.y = 40;
+        console.log("Рестарт")
+    };
+
+    keyRrus.press = () => {
         player.x = 15;
         player.y = 40;
         console.log("Рестарт")
@@ -444,7 +450,7 @@ function gameLoop(delta){
 
 function play(delta){
 
-    player.vy += 0.04;
+    player.vy += 0.1;
     player.x += player.vx;
     player.y += player.vy;
     level1Enemies.children.forEach((mace) => {
