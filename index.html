@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>flappyBank</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA=Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pixi-filters@latest/dist/pixi-filters.js"></script>
+        <script src="assets/js/bump.js" defer></script>
+        <script src="engine.js" defer></script>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-color: #3772FF;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            canvas{
+                margin: auto;
+                width: 1280px;
+                height: 800px;
+            }
+            h1{
+                font-family: "Open Sans";
+                font-weight: 700;
+                font-size: 24px;
+                color:#080708;
+                margin-top: 0;
+                margin-bottom: 5px;
+            }
+            h2{
+                font-family: "Open Sans";
+                font-weight: 500;
+                font-size: 16px;
+                color:#080708;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            p{
+                font-family: "Open Sans";
+                font-weight: 400;
+                font-size: 12px;
+                margin-top: 0;
+                color:#080708;
+            }
+            .text{
+                width: 1280px;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="text">
+            <h1>FlappyBank</h1>
+            <h2>Собери как можно больше монеток и дойди до конца уровня</h2>
+            <p>Что-бы бегать и летать, используй стрелки. Если ты себя не видишь, нажми "R"</p>
+        </div>
+    </body>
+</html>
